@@ -81,8 +81,10 @@ Elements can contain other elements. Proper nesting is important:
 @description Create a div containing an h2 title "My Card" and a paragraph with any text. Add a class="card" to the div.
 @language html
 @starter <body>
-  <!-- Create a div with class="card" containing h2 and p -->
-
+  <div>
+    <h2></h2>
+    <p>This is some card content.</p>
+  </div>
 </body>
 @expected class="card"
 ```

@@ -1,6 +1,9 @@
 <script>
   let { data } = $props();
-  const { topic, lessons, progress } = data;
+
+  let topic = $derived(data.topic);
+  let lessons = $derived(data.lessons);
+  let progress = $derived(data.progress);
 
   function isCompleted(lessonSlug) {
     return progress.some(p => p.lesson === lessonSlug && p.completed);

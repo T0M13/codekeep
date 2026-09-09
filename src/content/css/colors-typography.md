@@ -77,15 +77,17 @@ letter-spacing: 0.05em;
 @language html
 @starter <style>
   :root {
-    /* Define your variables */
-
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --accent: #0ea5e9;
   }
   body {
-    /* Use var(--bg) and var(--text) */
+    background: var(--bg);
+    /* Add text color using var(--text) */
 
   }
   h1 {
-    /* Use var(--accent) */
+    /* Use var(--accent) for the color */
 
   }
 </style>

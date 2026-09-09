@@ -71,8 +71,12 @@ When multiple rules target the same element, CSS uses specificity to decide whic
 <html>
 <head>
   <style>
-    /* Style the h1 here */
+    h1 {
+      color: #0ea5e9;
+      font-size: 3rem;
+      /* Add centering */
 
+    }
   </style>
 </head>
 <body>

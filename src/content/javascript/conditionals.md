@@ -102,8 +102,9 @@ function processUser(user) {
 @description Write a function `getGrade(score)` that returns: "A" for 90+, "B" for 80+, "C" for 70+, "D" for 60+, "F" otherwise. Log getGrade(85).
 @language javascript
 @starter function getGrade(score) {
-  // Use if/else to return the grade
-
+  if (score >= 90) return "A";
+  // Add more conditions for "B", "C", "D"
+  // What should the default return be?
 }
 
 console.log(getGrade(85));

@@ -64,7 +64,7 @@ Open it with `F12` or `Ctrl+Shift+J` in your browser.
 @title Hello World
 @description Write JavaScript that logs "Hello, CodeKeep!" to the console.
 @language javascript
-@starter // Log a greeting to the console
+@starter console.log(/* your message here */);
 
 @expected hello, codekeep!
 ```

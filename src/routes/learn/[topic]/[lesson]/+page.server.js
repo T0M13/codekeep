@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { getTopic } from '$lib/content.js';
 import { marked } from 'marked';
+import db from '$lib/server/db.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -51,19 +52,27 @@ export function load({ params, locals }) {
 
   const html = marked(content);
 
-  // Get lesson meta
+  // Get lesson meta + all lessons for sidebar
   const metaPath = path.join(contentDir, '_meta.json');
   let lessonMeta = {};
   let prevLesson = null;
   let nextLesson = null;
+  let allLessons = [];
   if (fs.existsSync(metaPath)) {
     const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+    allLessons = meta.lessons || [];
     const idx = meta.lessons.findIndex(l => l.slug === params.lesson);
     if (idx >= 0) {
       lessonMeta = meta.lessons[idx];
       if (idx > 0) prevLesson = meta.lessons[idx - 1];
       if (idx < meta.lessons.length - 1) nextLesson = meta.lessons[idx + 1];
     }
+  }
+
+  // Get progress for sidebar checkmarks
+  let progress = [];
+  if (locals.user) {
+    progress = db.prepare('SELECT lesson, completed FROM progress WHERE user_id = ? AND topic = ?').all(locals.user.id, params.topic);
   }
 
   return {
@@ -76,6 +85,8 @@ export function load({ params, locals }) {
       challenges
     },
     prevLesson,
-    nextLesson
+    nextLesson,
+    allLessons,
+    progress
   };
 }

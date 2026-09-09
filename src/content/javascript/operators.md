@@ -83,8 +83,8 @@ const status = age >= 18 ? "adult" : "minor";
 @description Create a variable `score` = 85. Use a ternary to set `grade` to "Pass" if score >= 60, else "Fail". Log the grade.
 @language javascript
 @starter const score = 85;
-// Use ternary to set grade
-// Log the result
+const grade = score >= 60 ? "___" : "___";
+console.log(grade);
 
 @expected Pass
 ```

@@ -78,8 +78,12 @@ Lists can be nested inside each other:
 @description Create an unordered list with at least 2 items, where the first item contains a nested ordered list with 3 sub-items.
 @language html
 @starter <body>
-  <!-- Create your nested list here -->
+  <ul>
+    <li>Frontend
 
+    </li>
+    <li>Backend</li>
+  </ul>
 </body>
 @expected <ol>
 ```

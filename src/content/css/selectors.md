@@ -84,7 +84,13 @@ li::marker { color: blue; }
 @description Use class and pseudo-class selectors: make .card have a gray background, and .card:hover have a blue border.
 @language html
 @starter <style>
-  /* Style .card and .card:hover */
+  .card {
+    padding: 1rem;
+    background: #e5e7eb;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+  }
+  /* Add a .card:hover rule with a blue border */
 
 </style>
 <div class="card">Hover over me!</div>

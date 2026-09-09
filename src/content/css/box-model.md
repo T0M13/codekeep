@@ -81,7 +81,11 @@ overflow: auto;     /* Scrollbar only when needed */
 @language html
 @starter <style>
   .card {
-    /* Add your box model styles */
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #333;
+    margin: 16px;
+    /* Add box-sizing */
 
   }
 </style>

@@ -83,8 +83,15 @@ Group related inputs:
 @language html
 @starter <body>
   <form>
-    <!-- Add email, password, checkbox, and submit button -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
+    <label for="password">Password:</label>
+    <input type="" id="password" name="password">
+
+    <input type="checkbox"> Remember me
+
+    <button type="submit">Log In</button>
   </form>
 </body>
 @expected type="password"

@@ -97,7 +97,9 @@ align-content: center;
 @language html
 @starter <style>
   .grid {
-    /* Add your grid styles */
+    display: grid;
+    gap: 1rem;
+    /* Add grid-template-columns with repeat(auto-fill, ...) */
 
   }
   .card {

@@ -53,8 +53,8 @@ Let's break it down:
 @starter <!DOCTYPE html>
 <html>
 <body>
-  <!-- Add your h1 and p tags here -->
-
+  <h1>Replace this text</h1>
+  <p></p>
 </body>
 </html>
 @expected hello, codekeep!

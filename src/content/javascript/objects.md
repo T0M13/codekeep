@@ -113,9 +113,16 @@ config.getPort?.()         // undefined (safe method call)
 @title Object practice
 @description Create a `person` object with name, age, and a greet() method that returns "Hi, I'm [name]!". Destructure the name, then log the greeting.
 @language javascript
-@starter // Create person object with greet method
-// Destructure name
-// Log the greeting
+@starter const person = {
+  name: "Alice",
+  age: 30,
+  greet() {
+    return `Hi, I'm ${ /* what goes here? */ }!`;
+  }
+};
+
+const { name } = person;
+console.log(person.greet());
 
 @expected Hi, I'm
 ```

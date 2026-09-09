@@ -103,7 +103,17 @@ for (const user of users) {
 @title FizzBuzz
 @description Loop from 1 to 15. For multiples of 3 log "Fizz", multiples of 5 log "Buzz", multiples of both log "FizzBuzz", otherwise log the number.
 @language javascript
-@starter // FizzBuzz from 1 to 15
+@starter for (let i = 1; i <= 15; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz");
+  } else if (/* divisible by 3 */) {
+    // log "Fizz"
+  } else if (/* divisible by 5 */) {
+    // log "Buzz"
+  } else {
+    console.log(i);
+  }
+}
 
 @expected FizzBuzz
 ```

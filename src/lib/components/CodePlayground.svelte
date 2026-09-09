@@ -1,11 +1,21 @@
 <script>
   let { code = '', language = 'html', expected = '', onComplete = () => {} } = $props();
 
+  import { tick } from 'svelte';
+
   let editorCode = $state(code);
   let output = $state('');
   let passed = $state(false);
   let showOutput = $state(false);
   let iframeRef = $state(null);
+
+  // Reset everything when the challenge changes (client-side navigation)
+  $effect(() => {
+    editorCode = code;
+    output = '';
+    passed = false;
+    showOutput = false;
+  });
 
   // All code runs inside a sandboxed iframe via blob URL + postMessage.
   // The sandbox attribute blocks: same-origin access, forms, popups, top navigation, downloads.
@@ -34,7 +44,7 @@
     <\/script></body></html>`;
   }
 
-  function runCode() {
+  async function runCode() {
     showOutput = true;
     output = '';
 
@@ -42,13 +52,22 @@
     const blob = new Blob([html], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
 
+    // Wait for the iframe to mount if this is the first run
+    await tick();
+
     if (iframeRef) {
-      iframeRef.src = url;
+      if (language === 'html' || language === 'css') {
+        // Use srcdoc for HTML/CSS so relative image URLs resolve against the app origin
+        iframeRef.removeAttribute('src');
+        iframeRef.srcdoc = html;
+      } else {
+        // JS sandboxes use blob: URLs (no images needed, stricter CSP)
+        iframeRef.src = url;
+      }
     }
 
     if (language === 'html' || language === 'css') {
       output = 'Preview updated!';
-      // For web languages, check result against code content
       setTimeout(() => {
         checkResult();
         URL.revokeObjectURL(url);
@@ -58,6 +77,8 @@
   }
 
   function handleMessage(e) {
+    // Only accept messages from our sandboxed blob: iframes (origin is 'null')
+    if (e.origin !== 'null' && e.origin !== null) return;
     if (e.data?.type === 'codekeep-output') {
       output = e.data.logs.join('\n') || '(no output)';
       checkResult();

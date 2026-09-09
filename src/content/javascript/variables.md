@@ -118,9 +118,10 @@ Boolean(42)       // true
 @title Variable practice
 @description Create a const `name` with your name, a let `score` starting at 0, then increment score by 10. Log both using a template literal: "Name has Score points"
 @language javascript
-@starter // Create name and score variables
-// Increment score by 10
-// Log: "[name] has [score] points"
+@starter const name = "CodeKeep";
+let score = 0;
+score += 10;
+console.log(`${name} has ${score} ___`);
 
 @expected points
 ```

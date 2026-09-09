@@ -117,7 +117,11 @@ const result = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 @language javascript
 @starter const numbers = [2, 4, 6, 8, 10, 12];
 
-// Chain filter and map, then log the result
+const result = numbers
+  .filter(n => n > 5)
+  .map(n => /* double n here */);
+
+console.log(result);
 
 @expected 12,16,20,24
 ```

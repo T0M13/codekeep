@@ -67,12 +67,19 @@
     showOutput = true;
     output = '';
     const html = buildSandboxHTML(code, language);
-    const blob = new Blob([html], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    if (iframeRef) iframeRef.src = url;
+    if (iframeRef) {
+      if (language === 'html' || language === 'css') {
+        iframeRef.removeAttribute('src');
+        iframeRef.srcdoc = html;
+      } else {
+        const blob = new Blob([html], { type: 'text/html' });
+        iframeRef.src = URL.createObjectURL(blob);
+      }
+    }
   }
 
   function handleMessage(e) {
+    if (e.origin !== 'null' && e.origin !== null) return;
     if (e.data?.type === 'codekeep-output') {
       output = e.data.logs.join('\n') || '(no output)';
     }

@@ -65,8 +65,12 @@ Use semantic elements to give meaning to your content:
 @description Create an article with an h1 title, two paragraphs, and a horizontal rule between them. Use strong to bold one word in the first paragraph.
 @language html
 @starter <body>
-  <!-- Create your article structure here -->
+  <article>
+    <h1>My Article Title</h1>
+    <p>This is the first paragraph with a word.</p>
 
+    <p>This is the second paragraph.</p>
+  </article>
 </body>
 @expected <article>
 ```

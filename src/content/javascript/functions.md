@@ -120,10 +120,13 @@ fetchData((result) => {
 @title Write a function
 @description Create an arrow function called `capitalize` that takes a string and returns it with the first letter uppercase and the rest lowercase. Test it with console.log.
 @language javascript
-@starter // Create the capitalize function
+@starter const capitalize = (str) => {
+  const first = str[0].toUpperCase();
+  const rest = str.slice(1); // What method makes this lowercase?
+  return first + rest;
+};
 
-// Test it:
-console.log(capitalize("hello"));   // "Hello"
-console.log(capitalize("WORLD"));   // "World"
+console.log(capitalize("hello"));
+console.log(capitalize("WORLD"));
 @expected Hello
 ```
