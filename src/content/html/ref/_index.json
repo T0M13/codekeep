@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "label": "Document",
+      "items": ["doctype", "html", "head", "body", "title", "meta", "link", "script", "style"]
+    },
+    {
+      "label": "Text",
+      "items": ["h1-h6", "p", "span", "a", "strong", "em", "br", "hr", "blockquote", "code", "pre"]
+    },
+    {
+      "label": "Lists",
+      "items": ["ul", "ol", "li", "dl"]
+    },
+    {
+      "label": "Media",
+      "items": ["img", "video", "audio", "canvas", "svg"]
+    },
+    {
+      "label": "Layout",
+      "items": ["div", "header", "footer", "nav", "main", "section", "article", "aside"]
+    },
+    {
+      "label": "Tables",
+      "items": ["table", "tr", "td", "th", "thead", "tbody"]
+    },
+    {
+      "label": "Forms",
+      "items": ["form", "input", "textarea", "select", "button", "label", "fieldset"]
+    }
+  ]
+}

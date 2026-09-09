@@ -1,0 +1,36 @@
+{
+  "groups": [
+    {
+      "label": "Basics",
+      "items": ["variables", "data-types", "operators", "type-conversion"]
+    },
+    {
+      "label": "Control Flow",
+      "items": ["if-else", "switch", "for", "while", "for-of", "for-in"]
+    },
+    {
+      "label": "Functions",
+      "items": ["functions", "arrow-functions", "callbacks", "closures"]
+    },
+    {
+      "label": "Strings",
+      "items": ["string-methods", "template-literals"]
+    },
+    {
+      "label": "Arrays",
+      "items": ["array-methods", "map-filter-reduce", "destructuring", "spread"]
+    },
+    {
+      "label": "Objects",
+      "items": ["objects", "object-methods", "classes", "this"]
+    },
+    {
+      "label": "Async",
+      "items": ["promises", "async-await", "fetch"]
+    },
+    {
+      "label": "DOM",
+      "items": ["selectors", "events", "dom-manipulation"]
+    }
+  ]
+}

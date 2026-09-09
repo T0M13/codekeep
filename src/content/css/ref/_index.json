@@ -1,0 +1,32 @@
+{
+  "groups": [
+    {
+      "label": "Layout",
+      "items": ["display", "position", "float", "clear", "overflow", "z-index", "box-sizing"]
+    },
+    {
+      "label": "Flexbox",
+      "items": ["flex", "flex-direction", "justify-content", "align-items", "flex-wrap", "gap"]
+    },
+    {
+      "label": "Grid",
+      "items": ["grid", "grid-template", "grid-column", "grid-row", "grid-gap"]
+    },
+    {
+      "label": "Spacing",
+      "items": ["margin", "padding", "width", "height", "max-width", "min-height"]
+    },
+    {
+      "label": "Typography",
+      "items": ["font-family", "font-size", "font-weight", "line-height", "text-align", "text-decoration", "color"]
+    },
+    {
+      "label": "Visual",
+      "items": ["background", "border", "border-radius", "box-shadow", "opacity", "cursor"]
+    },
+    {
+      "label": "Transitions",
+      "items": ["transition", "transform", "animation"]
+    }
+  ]
+}

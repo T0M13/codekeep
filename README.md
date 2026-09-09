@@ -4,6 +4,8 @@ Keep your coding skills sharp in the AI age.
 
 Interactive tutorials, live code playground, XP & levels. Learn by doing.
 
+**Live:** <https://codekeep.tamas-illes.com>
+
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 ## What it does

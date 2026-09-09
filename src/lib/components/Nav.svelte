@@ -8,6 +8,8 @@
 
   const links = [
     { href: '/learn', label: 'learn' },
+    { href: '/reference', label: 'reference' },
+    { href: '/tests', label: 'tests' },
     { href: '/playground', label: 'playground' },
   ];
 
