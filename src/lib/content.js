@@ -1,43 +1,45 @@
+import { icons } from './icons.js';
+
 const topicMeta = {
   html: {
     title: 'HTML',
     description: 'The backbone of every web page',
-    icon: '< >',
+    icon: icons.html,
     color: 'orange',
     order: 1
   },
   css: {
     title: 'CSS',
     description: 'Make things beautiful',
-    icon: '{ }',
+    icon: icons.css,
     color: 'blue',
     order: 2
   },
   javascript: {
     title: 'JavaScript',
     description: 'Bring pages to life',
-    icon: 'JS',
+    icon: icons.javascript,
     color: 'yellow',
     order: 3
   },
   python: {
     title: 'Python',
     description: 'The versatile language',
-    icon: 'Py',
+    icon: icons.python,
     color: 'green',
     order: 4
   },
   sql: {
     title: 'SQL',
     description: 'Talk to databases',
-    icon: 'DB',
+    icon: icons.sql,
     color: 'purple',
     order: 5
   },
   git: {
     title: 'Git',
     description: 'Version control mastery',
-    icon: '>>',
+    icon: icons.git,
     color: 'red',
     order: 6
   }
