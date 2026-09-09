@@ -1,0 +1,10 @@
+{
+  "lessons": [
+    { "slug": "introduction", "title": "What is CSS?", "description": "Styling the web", "xp": 25 },
+    { "slug": "selectors", "title": "Selectors", "description": "Targeting elements to style", "xp": 25 },
+    { "slug": "box-model", "title": "The Box Model", "description": "Margin, border, padding, content", "xp": 25 },
+    { "slug": "colors-typography", "title": "Colors & Typography", "description": "Fonts, sizes, and color systems", "xp": 25 },
+    { "slug": "flexbox", "title": "Flexbox", "description": "Modern layout made easy", "xp": 50 },
+    { "slug": "grid", "title": "CSS Grid", "description": "Two-dimensional layouts", "xp": 50 }
+  ]
+}

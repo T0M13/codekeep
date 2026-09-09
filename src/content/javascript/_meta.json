@@ -1,0 +1,12 @@
+{
+  "lessons": [
+    { "slug": "introduction", "title": "What is JavaScript?", "description": "The language of the web", "xp": 25 },
+    { "slug": "variables", "title": "Variables & Data Types", "description": "let, const, strings, numbers, booleans", "xp": 25 },
+    { "slug": "operators", "title": "Operators", "description": "Arithmetic, comparison, logical", "xp": 25 },
+    { "slug": "conditionals", "title": "Conditionals", "description": "if, else, switch, ternary", "xp": 25 },
+    { "slug": "loops", "title": "Loops", "description": "for, while, for...of", "xp": 25 },
+    { "slug": "functions", "title": "Functions", "description": "Declarations, arrows, scope", "xp": 50 },
+    { "slug": "arrays", "title": "Arrays", "description": "Lists of data and array methods", "xp": 50 },
+    { "slug": "objects", "title": "Objects", "description": "Key-value pairs and destructuring", "xp": 50 }
+  ]
+}

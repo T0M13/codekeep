@@ -1,0 +1,10 @@
+{
+  "lessons": [
+    { "slug": "introduction", "title": "What is HTML?", "description": "The building blocks of the web", "xp": 25 },
+    { "slug": "elements", "title": "HTML Elements", "description": "Tags, attributes, and nesting", "xp": 25 },
+    { "slug": "headings-paragraphs", "title": "Headings & Paragraphs", "description": "Structuring text content", "xp": 25 },
+    { "slug": "links-images", "title": "Links & Images", "description": "Connecting pages and adding media", "xp": 25 },
+    { "slug": "lists", "title": "Lists", "description": "Ordered, unordered, and description lists", "xp": 25 },
+    { "slug": "forms", "title": "Forms & Input", "description": "Getting data from users", "xp": 50 }
+  ]
+}
