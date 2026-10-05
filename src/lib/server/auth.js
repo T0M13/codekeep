@@ -28,12 +28,12 @@ export function verifyToken(token) {
 export function getUserFromToken(token) {
   const payload = verifyToken(token);
   if (!payload) return null;
-  return db.prepare('SELECT id, username, email, display_name, xp, streak_days, last_activity, created_at FROM users WHERE id = ?').get(payload.id);
+  return db.prepare('SELECT id, username, email, display_name, is_admin, xp, streak_days, last_activity, created_at FROM users WHERE id = ?').get(payload.id);
 }
 
-export function createUser(username, email, password) {
+export function createUser(username, email, password, displayName) {
   const hash = hashPassword(password);
-  const result = db.prepare('INSERT INTO users (username, email, password_hash, display_name) VALUES (?, ?, ?, ?)').run(username, email, hash, username);
+  const result = db.prepare('INSERT INTO users (username, email, password_hash, display_name) VALUES (?, ?, ?, ?)').run(username, email, hash, displayName || username);
   return result.lastInsertRowid;
 }
 

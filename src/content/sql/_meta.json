@@ -1,0 +1,14 @@
+{
+  "lessons": [
+    { "slug": "introduction", "title": "What is SQL?", "description": "Databases explained simply", "xp": 25 },
+    { "slug": "tables", "title": "Tables & Data Types", "description": "How data is organized", "xp": 25 },
+    { "slug": "select", "title": "SELECT Queries", "description": "Getting data out", "xp": 25 },
+    { "slug": "where", "title": "Filtering with WHERE", "description": "Finding exactly what you need", "xp": 25 },
+    { "slug": "sorting-limiting", "title": "Sorting & Limiting", "description": "ORDER BY and LIMIT", "xp": 25 },
+    { "slug": "insert-update-delete", "title": "INSERT, UPDATE, DELETE", "description": "Adding and changing data", "xp": 25 },
+    { "slug": "joins", "title": "Joining Tables", "description": "Connecting related data", "xp": 50 },
+    { "slug": "aggregate", "title": "Aggregate Functions", "description": "COUNT, SUM, AVG, MIN, MAX", "xp": 50 },
+    { "slug": "grouping", "title": "GROUP BY & HAVING", "description": "Summarizing data in groups", "xp": 50 },
+    { "slug": "subqueries", "title": "Subqueries", "description": "Queries inside queries", "xp": 50 }
+  ]
+}

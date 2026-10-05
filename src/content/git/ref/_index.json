@@ -1,0 +1,11 @@
+{
+  "groups": [
+    { "label": "Terminal", "items": ["cd", "ls", "pwd", "mkdir", "rm", "cp", "mv", "cat", "touch", "grep"] },
+    { "label": "Setup", "items": ["git-init", "git-clone", "git-config"] },
+    { "label": "Basics", "items": ["git-add", "git-commit", "git-status", "git-log", "git-diff"] },
+    { "label": "Branching", "items": ["git-branch", "git-checkout", "git-switch", "git-merge"] },
+    { "label": "Remote", "items": ["git-remote", "git-push", "git-pull", "git-fetch"] },
+    { "label": "Undoing", "items": ["git-reset", "git-revert", "git-stash", "git-restore"] },
+    { "label": "Advanced", "items": ["git-rebase", "git-cherry-pick", "git-tag", "gitignore"] }
+  ]
+}

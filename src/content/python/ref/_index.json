@@ -1,0 +1,12 @@
+{
+  "groups": [
+    { "label": "Basics", "items": ["print", "input", "comments", "variables", "data-types"] },
+    { "label": "Strings", "items": ["string-methods", "f-strings", "string-slicing"] },
+    { "label": "Numbers", "items": ["math-operators", "math-module", "type-conversion"] },
+    { "label": "Control Flow", "items": ["if-else", "for-loop", "while-loop", "break-continue"] },
+    { "label": "Functions", "items": ["def", "return", "args-kwargs", "lambda"] },
+    { "label": "Data Structures", "items": ["lists", "tuples", "dictionaries", "sets"] },
+    { "label": "File I/O", "items": ["open-read", "open-write", "with-statement"] },
+    { "label": "Common", "items": ["list-comprehension", "enumerate", "zip", "range"] }
+  ]
+}

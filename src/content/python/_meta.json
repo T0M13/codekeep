@@ -1,0 +1,14 @@
+{
+  "lessons": [
+    { "slug": "introduction", "title": "What is Python?", "description": "Why Python is everywhere", "xp": 25 },
+    { "slug": "variables", "title": "Variables & Data Types", "description": "Storing and naming things", "xp": 25 },
+    { "slug": "strings", "title": "Working with Strings", "description": "Text tricks and formatting", "xp": 25 },
+    { "slug": "operators", "title": "Operators", "description": "Math, comparison, and logic", "xp": 25 },
+    { "slug": "conditionals", "title": "Conditionals", "description": "Making decisions with if/elif/else", "xp": 25 },
+    { "slug": "loops", "title": "Loops", "description": "Repeating things with for and while", "xp": 25 },
+    { "slug": "functions", "title": "Functions", "description": "Reusable blocks of code", "xp": 50 },
+    { "slug": "lists", "title": "Lists & Tuples", "description": "Collections of things", "xp": 50 },
+    { "slug": "dictionaries", "title": "Dictionaries", "description": "Key-value pairs", "xp": 50 },
+    { "slug": "files", "title": "Reading & Writing Files", "description": "Working with files on your computer", "xp": 50 }
+  ]
+}

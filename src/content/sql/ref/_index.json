@@ -1,0 +1,10 @@
+{
+  "groups": [
+    { "label": "Queries", "items": ["select", "where", "order-by", "limit", "distinct", "like", "in", "between"] },
+    { "label": "Modifying", "items": ["insert", "update", "delete", "create-table", "alter-table", "drop-table"] },
+    { "label": "Joins", "items": ["inner-join", "left-join", "right-join", "full-join", "cross-join", "self-join"] },
+    { "label": "Aggregate", "items": ["count", "sum", "avg", "min-max", "group-by", "having"] },
+    { "label": "Advanced", "items": ["subqueries", "union", "case", "coalesce", "exists"] },
+    { "label": "Constraints", "items": ["primary-key", "foreign-key", "not-null", "unique", "default", "check"] }
+  ]
+}

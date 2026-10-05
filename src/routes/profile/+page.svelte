@@ -31,7 +31,12 @@
           <span class="badge bg-surface-700 text-surface-200">{title}</span>
         </div>
       </div>
-      <button onclick={handleLogout} class="btn-secondary text-sm">Log out</button>
+      <div class="flex gap-2">
+        {#if user.is_admin}
+          <a href="/admin" class="btn-secondary text-sm">Admin</a>
+        {/if}
+        <button onclick={handleLogout} class="btn-secondary text-sm">Log out</button>
+      </div>
     </div>
   </div>
 
@@ -79,7 +84,7 @@
           {@const topic = topics.find(t => t.slug === stat.topic)}
           {#if topic}
             <div class="flex items-center gap-3">
-              <div class="w-8 h-8 {topic.colors.icon} rounded-lg flex items-center justify-center text-white font-mono text-xs font-bold">{topic.icon}</div>
+              <div class="w-8 h-8 {topic.colors.icon} rounded-lg flex items-center justify-center text-white p-1.5">{@html topic.icon}</div>
               <span class="text-white font-medium flex-1">{topic.title}</span>
               <span class="text-surface-200/50 text-sm">{stat.completed} lessons</span>
             </div>

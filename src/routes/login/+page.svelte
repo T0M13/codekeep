@@ -18,7 +18,7 @@
       });
       const data = await res.json();
       if (!res.ok) { error = data.error; return; }
-      goto('/learn');
+      window.location.href = '/profile';
     } catch { error = 'Something went wrong'; }
     finally { loading = false; }
   }

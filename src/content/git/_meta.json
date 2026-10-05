@@ -1,0 +1,14 @@
+{
+  "lessons": [
+    { "slug": "terminal-basics", "title": "Terminal Basics", "description": "Your computer's command line", "xp": 25 },
+    { "slug": "introduction", "title": "What is Git?", "description": "Why version control matters", "xp": 25 },
+    { "slug": "setup", "title": "Setting Up Git", "description": "Installing and configuring", "xp": 25 },
+    { "slug": "first-repo", "title": "Your First Repository", "description": "Creating and cloning repos", "xp": 25 },
+    { "slug": "commits", "title": "Making Commits", "description": "Saving snapshots of your work", "xp": 25 },
+    { "slug": "branches", "title": "Branches", "description": "Working on different versions", "xp": 50 },
+    { "slug": "merging", "title": "Merging & Conflicts", "description": "Combining branches together", "xp": 50 },
+    { "slug": "remote", "title": "Remote Repositories", "description": "GitHub, pushing, and pulling", "xp": 50 },
+    { "slug": "workflow", "title": "Daily Git Workflow", "description": "How developers actually use Git", "xp": 25 },
+    { "slug": "undoing", "title": "Undoing Changes", "description": "Fixing mistakes like a pro", "xp": 50 }
+  ]
+}

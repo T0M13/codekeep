@@ -20,6 +20,7 @@ function getDb() {
       email TEXT UNIQUE NOT NULL,
       password_hash TEXT NOT NULL,
       display_name TEXT,
+      is_admin INTEGER DEFAULT 0,
       xp INTEGER DEFAULT 0,
       streak_days INTEGER DEFAULT 0,
       last_activity DATE,
@@ -51,12 +52,19 @@ function getDb() {
     );
   `);
 
+  // Add is_admin column if missing (migration for existing DBs)
+  try {
+    _db.exec('ALTER TABLE users ADD COLUMN is_admin INTEGER DEFAULT 0');
+  } catch {
+    // Column already exists
+  }
+
   // Seed default accounts if they don't exist
-  const seedUser = (username, email, password, displayName) => {
+  const seedUser = (username, email, password, displayName, isAdmin = 0) => {
     const exists = _db.prepare('SELECT id FROM users WHERE username = ?').get(username);
     if (!exists) {
       const hash = bcrypt.hashSync(password, 10);
-      _db.prepare('INSERT INTO users (username, email, password_hash, display_name) VALUES (?, ?, ?, ?)').run(username, email, hash, displayName);
+      _db.prepare('INSERT INTO users (username, email, password_hash, display_name, is_admin) VALUES (?, ?, ?, ?, ?)').run(username, email, hash, displayName, isAdmin);
     }
   };
 
@@ -64,7 +72,7 @@ function getDb() {
   const adminEmail = process.env.ADMIN_EMAIL || 'admin@codekeep.dev';
   const adminPass = process.env.ADMIN_PASSWORD || 'changeme';
   const adminDisplay = process.env.ADMIN_DISPLAY_NAME || 'Admin';
-  seedUser(adminUser, adminEmail, adminPass, adminDisplay);
+  seedUser(adminUser, adminEmail, adminPass, adminDisplay, 1);
   seedUser('testuser', 'test@codekeep.dev', 'testpass', 'Test User');
 
   return _db;

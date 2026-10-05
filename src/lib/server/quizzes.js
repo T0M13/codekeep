@@ -136,6 +136,144 @@ export const quizzes = {
         reference: '/reference/javascript/for-of'
       }
     ]
+  },
+  python: {
+    title: 'Python Fundamentals Test',
+    description: 'Variables, strings, lists, functions, and control flow',
+    questions: [
+      {
+        id: 'py-type-check',
+        prompt: 'How do you check the type of a variable in Python?',
+        options: ['typeof(x)', 'x.type()', 'type(x)', 'checktype(x)'],
+        answer: 2,
+        explanation: 'type(x) returns the type of the variable. Python uses built-in functions, not methods for this.',
+        reference: '/reference/python/data-types'
+      },
+      {
+        id: 'py-list-add',
+        prompt: 'Which method adds a single item to the end of a list?',
+        options: ['list.add()', 'list.push()', 'list.append()', 'list.insert()'],
+        answer: 2,
+        explanation: 'append() adds one item to the end. insert() adds at a specific position. push() doesn\'t exist in Python.',
+        reference: '/reference/python/lists'
+      },
+      {
+        id: 'py-fstring',
+        prompt: 'What is the correct way to use an f-string?',
+        options: ['f"Hello {name}"', '"Hello {name}".format()', 'f("Hello", name)', 'format("Hello {name}")'],
+        answer: 0,
+        explanation: 'f-strings use f"..." with curly braces for expressions. They were added in Python 3.6.',
+        reference: '/reference/python/f-strings'
+      },
+      {
+        id: 'py-dict-access',
+        prompt: 'What happens if you access a dictionary key that doesn\'t exist with dict["key"]?',
+        options: ['Returns None', 'Returns 0', 'Raises a KeyError', 'Creates the key automatically'],
+        answer: 2,
+        explanation: 'Using [] raises KeyError if the key is missing. Use dict.get("key") for a safe lookup that returns None.',
+        reference: '/reference/python/dictionaries'
+      },
+      {
+        id: 'py-range',
+        prompt: 'What does range(3) produce?',
+        options: ['1, 2, 3', '0, 1, 2', '0, 1, 2, 3', '3, 2, 1'],
+        answer: 1,
+        explanation: 'range(3) produces 0, 1, 2 — it starts at 0 and stops before the number you give it.',
+        reference: '/reference/python/range'
+      }
+    ]
+  },
+  git: {
+    title: 'Git & Terminal Test',
+    description: 'Terminal navigation, commits, branches, and remote workflows',
+    questions: [
+      {
+        id: 'git-cd-parent',
+        prompt: 'Which command takes you up one directory level in the terminal?',
+        options: ['cd up', 'cd ..', 'cd /', 'cd back'],
+        answer: 1,
+        explanation: '.. means "parent directory" in all operating systems. cd .. moves you one folder up.',
+        reference: '/reference/git/cd'
+      },
+      {
+        id: 'git-staging',
+        prompt: 'What does git add do?',
+        options: ['Creates a new file', 'Uploads files to GitHub', 'Moves files to the staging area for the next commit', 'Deletes files from the repository'],
+        answer: 2,
+        explanation: 'git add stages changes — it tells Git "include these in the next commit". It doesn\'t save or upload anything yet.',
+        reference: '/reference/git/git-add'
+      },
+      {
+        id: 'git-branch-purpose',
+        prompt: 'What is a Git branch?',
+        options: ['A copy of the entire repository', 'A separate line of development that doesn\'t affect the main code', 'A backup of your files', 'A type of Git commit'],
+        answer: 1,
+        explanation: 'A branch lets you work on something new without changing the main code. Think of it as a parallel timeline.',
+        reference: '/reference/git/git-branch'
+      },
+      {
+        id: 'git-push',
+        prompt: 'What does git push do?',
+        options: ['Downloads changes from GitHub', 'Saves your changes locally', 'Uploads your commits to a remote repository', 'Creates a new branch'],
+        answer: 2,
+        explanation: 'git push sends your local commits to the remote (like GitHub) so others can see them.',
+        reference: '/reference/git/git-push'
+      },
+      {
+        id: 'git-undo-unstaged',
+        prompt: 'How do you undo changes to a file that hasn\'t been staged yet?',
+        options: ['git undo file.txt', 'git reset file.txt', 'git restore file.txt', 'git revert file.txt'],
+        answer: 2,
+        explanation: 'git restore throws away your local changes and puts the file back to how it was in the last commit.',
+        reference: '/reference/git/git-restore'
+      }
+    ]
+  },
+  sql: {
+    title: 'SQL Essentials Test',
+    description: 'Queries, filtering, joins, and aggregate functions',
+    questions: [
+      {
+        id: 'sql-select-all',
+        prompt: 'Which SQL statement gets all columns from a table called "users"?',
+        options: ['GET ALL FROM users', 'SELECT * FROM users', 'FETCH users', 'READ * FROM users'],
+        answer: 1,
+        explanation: 'SELECT * FROM table_name is the standard way to get all columns. The * means "everything".',
+        reference: '/reference/sql/select'
+      },
+      {
+        id: 'sql-where',
+        prompt: 'What does the WHERE clause do?',
+        options: ['Sorts the results', 'Limits the number of rows', 'Filters rows based on a condition', 'Groups rows together'],
+        answer: 2,
+        explanation: 'WHERE filters which rows are included in the results. Only rows matching the condition are returned.',
+        reference: '/reference/sql/where'
+      },
+      {
+        id: 'sql-inner-join',
+        prompt: 'What does an INNER JOIN return?',
+        options: ['All rows from both tables', 'Only rows that have matching values in both tables', 'All rows from the left table', 'Only rows from the right table'],
+        answer: 1,
+        explanation: 'INNER JOIN returns only the rows where there\'s a match in both tables. No match = not included.',
+        reference: '/reference/sql/inner-join'
+      },
+      {
+        id: 'sql-count',
+        prompt: 'What does SELECT COUNT(*) FROM orders return?',
+        options: ['All the orders', 'The total number of rows in the orders table', 'The sum of all order amounts', 'The average order size'],
+        answer: 1,
+        explanation: 'COUNT(*) counts how many rows exist. It\'s the most common way to find out "how many" of something.',
+        reference: '/reference/sql/count'
+      },
+      {
+        id: 'sql-group-by',
+        prompt: 'What does GROUP BY do?',
+        options: ['Sorts results alphabetically', 'Combines rows with the same value into summary rows', 'Limits output to one group', 'Joins two tables together'],
+        answer: 1,
+        explanation: 'GROUP BY groups rows that share the same value, then you can use aggregate functions (COUNT, SUM, etc.) on each group.',
+        reference: '/reference/sql/group-by'
+      }
+    ]
   }
 };
 

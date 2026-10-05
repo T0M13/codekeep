@@ -3,11 +3,6 @@
 
   let topic = $derived(data.topic);
   let lessons = $derived(data.lessons);
-  let progress = $derived(data.progress);
-
-  function isCompleted(lessonSlug) {
-    return progress.some(p => p.lesson === lessonSlug && p.completed);
-  }
 </script>
 
 <svelte:head>
@@ -42,13 +37,8 @@
     <div class="space-y-2">
       {#each lessons as lesson, i}
         <a href="/learn/{topic.slug}/{lesson.slug}" class="card-hover flex items-center gap-4 !p-4 group">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-sm font-medium
-            {isCompleted(lesson.slug) ? 'bg-green-500/15 text-green-400' : 'bg-surface-800 text-surface-200/40'}">
-            {#if isCompleted(lesson.slug)}
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-            {:else}
-              {i + 1}
-            {/if}
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 text-sm font-medium bg-surface-800 text-surface-200/40">
+            {i + 1}
           </div>
           <div class="flex-1 min-w-0">
             <h3 class="font-medium text-white group-hover:text-brand-300 transition-colors text-sm sm:text-base">{lesson.title}</h3>

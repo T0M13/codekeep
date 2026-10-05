@@ -1,6 +1,4 @@
 <script>
-  import CodePlayground from '$lib/components/CodePlayground.svelte';
-
   let { data } = $props();
 
   let topic = $derived(data.topic);
@@ -8,52 +6,13 @@
   let prevLesson = $derived(data.prevLesson);
   let nextLesson = $derived(data.nextLesson);
   let allLessons = $derived(data.allLessons);
-  let progress = $derived(data.progress);
 
-  let completedChallenges = $state(new Set());
   let sidebarOpen = $state(false);
 
-  // Reset challenges when navigating to a different lesson
   $effect(() => {
     lesson.slug;
-    completedChallenges = new Set();
     sidebarOpen = false;
   });
-
-  function isLessonCompleted(lessonSlug) {
-    return progress.some(p => p.lesson === lessonSlug && p.completed);
-  }
-
-  function onChallengeComplete(id) {
-    completedChallenges.add(id);
-    completedChallenges = completedChallenges;
-
-    if (data.user) {
-      fetch('/api/progress', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          topic: topic.slug,
-          lesson: lesson.slug,
-          challengeId: id,
-          completed: completedChallenges.size === lesson.challenges.length
-        })
-      });
-    }
-  }
-
-  function markComplete() {
-    if (!data.user) return;
-    fetch('/api/progress', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        topic: topic.slug,
-        lesson: lesson.slug,
-        completed: true
-      })
-    });
-  }
 </script>
 
 <svelte:head>
@@ -73,19 +32,14 @@
       <nav class="space-y-0.5">
         {#each allLessons as l, i}
           {@const isCurrent = l.slug === lesson.slug}
-          {@const isDone = isLessonCompleted(l.slug)}
           <a
             href="/learn/{topic.slug}/{l.slug}"
             class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm transition-colors
               {isCurrent ? 'bg-surface-800 text-white font-medium' : 'text-surface-200/50 hover:text-surface-200/80 hover:bg-surface-800/50'}"
           >
             <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 text-[11px]
-              {isDone ? 'bg-green-500/15 text-green-400' : isCurrent ? 'bg-brand-500/20 text-brand-400' : 'bg-surface-800 text-surface-200/30'}">
-              {#if isDone}
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              {:else}
-                {i + 1}
-              {/if}
+              {isCurrent ? 'bg-brand-500/20 text-brand-400' : 'bg-surface-800 text-surface-200/30'}">
+              {i + 1}
             </span>
             <span class="truncate">{l.title}</span>
           </a>
@@ -118,7 +72,6 @@
       <nav class="space-y-0.5">
         {#each allLessons as l, i}
           {@const isCurrent = l.slug === lesson.slug}
-          {@const isDone = isLessonCompleted(l.slug)}
           <a
             href="/learn/{topic.slug}/{l.slug}"
             class="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm transition-colors
@@ -126,12 +79,8 @@
             onclick={() => sidebarOpen = false}
           >
             <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 text-[11px]
-              {isDone ? 'bg-green-500/15 text-green-400' : isCurrent ? 'bg-brand-500/20 text-brand-400' : 'bg-surface-800 text-surface-200/30'}">
-              {#if isDone}
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              {:else}
-                {i + 1}
-              {/if}
+              {isCurrent ? 'bg-brand-500/20 text-brand-400' : 'bg-surface-800 text-surface-200/30'}">
+              {i + 1}
             </span>
             <span class="truncate">{l.title}</span>
           </a>
@@ -156,34 +105,6 @@
       {@html lesson.html}
     </article>
 
-    <!-- Challenges (optional try-it sections) -->
-    {#each lesson.challenges as challenge}
-      <div class="my-8">
-        <div class="card !border-surface-700 overflow-hidden">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-7 h-7 bg-brand-500/15 rounded-lg flex items-center justify-center">
-              <svg class="w-3.5 h-3.5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <h3 class="font-semibold text-white text-sm">Try it: {challenge.title || 'Practice'}</h3>
-            {#if completedChallenges.has(challenge.id)}
-              <span class="text-xs text-green-400/70 ml-auto">done</span>
-            {/if}
-          </div>
-          {#if challenge.description}
-            <p class="text-surface-200/60 text-sm mb-4">{challenge.description.trim()}</p>
-          {/if}
-          <CodePlayground
-            code={challenge.starter?.trim() || ''}
-            language={challenge.language || topic.slug}
-            expected={challenge.expected?.trim() || ''}
-            onComplete={() => onChallengeComplete(challenge.id)}
-          />
-        </div>
-      </div>
-    {/each}
-
     <!-- Navigation -->
     <div class="flex items-center justify-between mt-10 pt-6 border-t border-surface-800">
       {#if prevLesson}
@@ -193,12 +114,6 @@
         </a>
       {:else}
         <div></div>
-      {/if}
-
-      {#if data.user}
-        <button class="text-xs text-surface-200/30 hover:text-brand-400 transition-colors" onclick={markComplete}>
-          mark as read
-        </button>
       {/if}
 
       {#if nextLesson}
